@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card{
+            background-color: aquamarine;
+            height: 500px;
+            width: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius:10px ;
+        }
+        .details{
+            display: grid;
+            justify-content: center;
+            align-items:center;
+            background-color: burlywood;
+            height:400px;
+            width:460px;
+            border-radius:10px ;
+
+        }
+        .show,.hide{
+            margin: 15px;
+            border-radius:10px ;
+
+        }
+    </style>
+</head>
+<body style="background-color: #212121;">
+    <!-- 0  UNSENT Client has been created . open() not called yet.
+    1  OPENED open() has been called.
+    2  HEADERS_RECIEVED   send() has been called, and headers and status are  available.
+    3  LOADING Downloading; responseText holds partial data.
+    4  DONE The operation is complete. -->
+
+    <div class="card"></div>
+</body>
+<script>
+    const card = document.querySelector('.card')
+
+    const cardDetails = document.createElement('div')
+    cardDetails.className = 'details'
+    card.appendChild(cardDetails)
+
+    const show = document.createElement('button')
+    show.className = 'show'
+    show.innerHTML = 'SHOW'
+    cardDetails.appendChild(show)
+
+    const hide = document.createElement('button')
+    hide.className = 'hide'
+    hide.innerHTML = 'HIDE'
+    cardDetails.appendChild(hide)
+
+    // *********************************************************************
+    
+    const requestUrl = 'https://api.github.com/users/Z0RRR0'
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET', requestUrl)
+
+    let data;
+    
+
+    xhr.onreadystatechange = function() {
+        console.log(xhr.readyState);
+        if(xhr.readyState === 4) {
+         data = JSON.parse(this.responseText)
+            console.log(typeof data);
+            console.log(data.followers);
+        } 
+    }
+
+    // **********************************************************************
+
+    show.addEventListener('click', function(){
+        if(data){
+            const image = document.createElement('img')
+            image.style.height = '200px'
+            image.style.width = '200px'
+            image.src = data.avatar_url;
+            cardDetails.appendChild(image)
+
+            const getUserFollowers = document.createElement('p')
+            getUserFollowers.className = 'user'
+            getUserFollowers.innerHTML = `<h2>FOLLOWERS: ${data.followers}</h2>`
+            cardDetails.appendChild(getUserFollowers)
+
+            hide.addEventListener('click', function(){
+            if(data){
+            cardDetails.removeChild(image)
+            cardDetails.removeChild(getUserFollowers)
+        }
+    })
+        } else {
+            alert('data not loaded')
+        }
+    })
+    
+    xhr.send()
+</script>
+</html>

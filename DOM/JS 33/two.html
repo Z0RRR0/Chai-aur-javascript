@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Chai aur code</title>
+    </head>
+    <body style ="background-color: #212121; color: #fff">
+
+    </body>
+    <script>
+       const div = document.createElement('div')
+    //    console.log(div);
+       div.className = "main"
+       div.id = Math.round(Math.random()*10 + 1)
+       div.setAttribute("title", "generated title")
+       div.style.backgroundColor = "green"
+       div.style.padding = "12px"
+    //    div.innerText = "Chai aur code"
+       const addText = document.createTextNode("Straw-Hats")
+       div.appendChild(addText)
+       document.body.appendChild(div)
+
+        const luffy = document.createElement('div')
+        console.log(luffy)
+        luffy.className = "main"
+        luffy.id = Math.round(Math.random()*10 + 1)
+        luffy.setAttribute("title", "Captain")
+        luffy.style.backgroundColor = "red"
+        luffy.style.padding = "12px"
+        const dialogue = document.createTextNode("Kaizoku oni orewa naru")
+        luffy.appendChild(dialogue)
+        document.body.appendChild(luffy)
+
+
+        const zoro = document.createElement('div')
+        console.log(zoro);
+        zoro.className = "main"
+        zoro.id = Math.round(Math.random()*10 + 1)
+        zoro.setAttribute("title", "Vice-Captain")
+        zoro.style.backgroundColor = "blue"
+        zoro.style.padding = "12px"
+        const dialogueTwo = document.createTextNode("Oni-giri")
+        zoro.appendChild(dialogueTwo)
+        document.body.appendChild(zoro)
+
+        const sanji = document.createElement('div')
+        console.log(sanji);
+        sanji.className = "main"
+        sanji.id = Math.round(Math.random()*10 +1)
+        sanji.setAttribute("title", "Cook")
+        sanji.style.backgroundColor = "Yellow"
+        sanji.style.padding = "12px"
+        dialogueThree = document.createTextNode("Ifrit-Jumble")
+        sanji.appendChild(dialogueThree)
+        document.body.appendChild(sanji)
+
+        const chopper = document.createElement('div')
+        console.log(chopper);
+        chopper.className = "main"
+        chopper.id = Math.round(Math.random()*10 + 1)
+        chopper.setAttribute("title", "Doctor")
+        chopper.style.backgroundColor = "orange"
+        chopper.style.padding = "12px"
+        const dialogueFour = document.createTextNode("Bokuwa Doctor, Tony-Tony Chopper")
+        chopper.appendChild(dialogueFour)
+        document.body.appendChild(chopper)
+        
+    </script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            width: 500px;
+            height: 500px;
+           
+        }
+
+        .button{
+            width: 125px;
+            height: 125px;
+            border: 2px solid black;
+            margin: 12px;
+            display: inline-block;
+        }
+        #red{
+            background-color: red;
+        }
+        #grey{
+            background-color: grey;
+        }
+        #yellow{
+            background-color: yellow;
+        }
+        #blue{
+            background-color: blue;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="button" id = "red" onclick= {changeColor()}>
+        <p>red</p>
+        
+    </div>
+    <div class="button" id = "grey">
+        GREY
+    </div>
+    <div class="button" id = "yellow">
+        YELLOW
+    </div>
+    <div class="button" id = "blue">
+        BLUE
+    </div>
+</body>
+<script>
+    const red = document.querySelectorAll("#red")
+    console.log(red);
+
+     red.addEventListener('click' , (e)=>{
+        console.log(e.target.id)
+     }
+      ) 
+    
+</script>
+</html>
